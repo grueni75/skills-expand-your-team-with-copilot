@@ -182,3 +182,11 @@ body:
         ### Documentation
         - Update API documentation if new endpoints are added
         - Consider updating the README if user-facing changes are significant
+        
+        ### Limitations and Context
+        
+        - Consider impact on existing users and backward compatibility
+        - Ensure feature works within current system architecture constraints
+        - Be mindful of performance implications, especially for large datasets
+        - Follow existing security patterns, particularly for teacher authentication
+        - Consider scalability if feature will be used by many users simultaneously

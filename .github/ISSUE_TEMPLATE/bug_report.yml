@@ -196,6 +196,16 @@ body:
         - **API Issues**: Check for proper error handling and validation
         - **Mobile Issues**: Responsive design or touch interaction problems
         
+        ### Acceptance Criteria
+        
+        When this bug is fixed, the following should be true:
+        
+        - [ ] The reported issue no longer occurs when following the reproduction steps
+        - [ ] The system behaves as described in the "Expected Behavior" section
+        - [ ] No new bugs are introduced by the fix
+        - [ ] The fix works across the same browsers/devices where the bug occurred
+        - [ ] Appropriate error handling is in place to prevent similar issues
+        
         ### Testing Requirements
         
         - [ ] Verify the fix resolves the reported issue

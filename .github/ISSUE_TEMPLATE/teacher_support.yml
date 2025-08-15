@@ -101,6 +101,15 @@ body:
         
         When responding to this teacher support request:
         
+        ### Acceptance Criteria for Response
+        
+        A complete response should include:
+        - [ ] Clear, step-by-step instructions for the teacher's specific situation
+        - [ ] Explanation of why the suggested approach works
+        - [ ] Alternative options if applicable
+        - [ ] Links to relevant documentation or resources
+        - [ ] Follow-up suggestions for related tasks
+        
         ### Provide Clear Solutions
         - Give step-by-step instructions when possible
         - Include screenshots or examples if helpful
