@@ -1,0 +1,145 @@
+name: 🎨 UI/Design Improvement
+description: Request improvements to the user interface or visual design
+title: "[UI Improvement]: "
+labels: ["enhancement", "ui-improvement", "frontend"]
+assignees: 
+  - Copilot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## UI/Design Improvement Request
+        
+        Use this template to request improvements to the user interface or visual design of the Mergington High School activities system.
+        
+        **Important**: Please be specific about what you want changed and why to help the coding agent implement your request effectively.
+
+  - type: dropdown
+    id: ui_area
+    attributes:
+      label: Which area of the interface needs improvement?
+      description: Select the main area that needs changes
+      options:
+        - Main activities page layout
+        - Activity cards design
+        - Activity filtering/search interface
+        - Registration modal
+        - Teacher login interface
+        - Navigation and header
+        - Footer
+        - Mobile responsiveness
+        - Color scheme and branding
+        - Typography and fonts
+        - Other (specify below)
+    validations:
+      required: true
+
+  - type: input
+    id: custom_ui_area
+    attributes:
+      label: Custom UI Area
+      description: If you selected "Other" above, please specify the area
+      placeholder: e.g., "Student participation status display"
+
+  - type: dropdown
+    id: improvement_type
+    attributes:
+      label: Type of Improvement
+      description: What kind of improvement are you requesting?
+      options:
+        - Visual design enhancement (colors, spacing, layout)
+        - Usability improvement (easier to use, clearer flow)
+        - Accessibility improvement (screen readers, keyboard navigation)
+        - Mobile/responsive design improvement
+        - Performance improvement (faster loading, smoother animations)
+        - Information display improvement (better organization, clearer labels)
+        - Other functionality enhancement
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_problem
+    attributes:
+      label: Current Problem
+      description: Describe what's currently problematic or could be improved
+      placeholder: e.g., "The activity cards are too crowded and hard to read", "Students can't easily see which activities they're signed up for"
+    validations:
+      required: true
+
+  - type: textarea
+    id: desired_outcome
+    attributes:
+      label: Desired Outcome
+      description: Describe what you want the interface to look like or how it should behave
+      placeholder: e.g., "Activity cards should have more spacing and clearer time display", "Add a visual indicator when students are registered"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority_level
+    attributes:
+      label: Priority Level
+      description: How important is this improvement?
+      options:
+        - High - Critical for daily use
+        - Medium - Important but not urgent
+        - Low - Nice to have enhancement
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: user_groups_affected
+    attributes:
+      label: Who will benefit from this improvement?
+      description: Check all that apply
+      options:
+        - label: Students viewing activities
+        - label: Teachers managing registrations
+        - label: Administrators overseeing the system
+        - label: Mobile users
+        - label: Users with accessibility needs
+
+  - type: textarea
+    id: specific_suggestions
+    attributes:
+      label: Specific Design Suggestions
+      description: Any specific ideas for colors, layouts, or implementations?
+      placeholder: e.g., "Use school colors (blue and orange)", "Add icons for different activity types", "Make buttons larger for easier clicking"
+
+  - type: input
+    id: reference_examples
+    attributes:
+      label: Reference Examples (Optional)
+      description: Any websites or designs that have similar features you like?
+      placeholder: e.g., "Similar to how events are displayed on eventbrite.com"
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Acceptance Criteria
+        
+        When this issue is completed, the following should be implemented:
+        
+        - [ ] The specified UI area has been improved according to the request
+        - [ ] The improvement enhances usability without breaking existing functionality
+        - [ ] Changes are responsive and work on both desktop and mobile
+        - [ ] The visual design remains consistent with the overall theme
+        - [ ] Any accessibility improvements are properly implemented
+        
+        ## Implementation Hints
+        
+        - Main styling is in `src/static/styles.css`
+        - HTML structure is in `src/static/index.html`
+        - JavaScript interactions are in `src/static/app.js`
+        - Current color scheme uses CSS custom properties (variables) in `:root`
+        - Activity cards are dynamically generated in the `renderActivityCard` function
+        - Consider mobile-first responsive design principles
+        
+        ## Technical Context
+        
+        - CSS uses modern features like Grid, Flexbox, and CSS custom properties
+        - The design follows a card-based layout for activities
+        - Color palette includes primary (#1a237e), secondary (#ff6f00), and neutral colors
+        - Icons and visual indicators are handled through CSS classes and JavaScript
+        - Modal dialogs use CSS transitions for smooth animations
+        - Responsive breakpoints should consider tablets and mobile devices

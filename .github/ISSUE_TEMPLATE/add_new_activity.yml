@@ -1,0 +1,133 @@
+name: 🎯 Add New Activity
+description: Request to add a new extracurricular activity to the system
+title: "[New Activity]: "
+labels: ["enhancement", "activity-request"]
+assignees: 
+  - Copilot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Add New Activity Request
+        
+        Use this template to request adding a new extracurricular activity to the Mergington High School system.
+        
+        **Important**: Please fill out all required fields to ensure the coding agent can implement your request without additional clarification.
+
+  - type: input
+    id: activity_name
+    attributes:
+      label: Activity Name
+      description: What is the name of the new activity?
+      placeholder: e.g., "Photography Club", "Spanish Tutoring", "Model UN"
+    validations:
+      required: true
+
+  - type: textarea
+    id: activity_description
+    attributes:
+      label: Activity Description
+      description: Provide a clear description of what this activity involves
+      placeholder: e.g., "Learn photography techniques and develop digital editing skills while exploring campus and local areas"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: activity_type
+    attributes:
+      label: Activity Type
+      description: What category does this activity fall under?
+      options:
+        - Academic (tutoring, study groups, academic competitions)
+        - Arts & Creative (art, music, theater, creative writing)
+        - Sports & Fitness (sports teams, fitness activities)
+        - Technology (coding, robotics, digital media)
+        - Community Service (volunteering, service projects)
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: schedule_days
+    attributes:
+      label: Meeting Days
+      description: What days of the week will this activity meet?
+      multiple: true
+      options:
+        - Monday
+        - Tuesday
+        - Wednesday
+        - Thursday
+        - Friday
+        - Saturday
+        - Sunday
+    validations:
+      required: true
+
+  - type: input
+    id: start_time
+    attributes:
+      label: Start Time
+      description: What time does the activity start? (Use 24-hour format HH:MM)
+      placeholder: e.g., "15:30" for 3:30 PM
+    validations:
+      required: true
+
+  - type: input
+    id: end_time
+    attributes:
+      label: End Time
+      description: What time does the activity end? (Use 24-hour format HH:MM)
+      placeholder: e.g., "17:00" for 5:00 PM
+    validations:
+      required: true
+
+  - type: input
+    id: max_participants
+    attributes:
+      label: Maximum Participants
+      description: What is the maximum number of students that can participate?
+      placeholder: e.g., "15"
+    validations:
+      required: true
+
+  - type: input
+    id: teacher_username
+    attributes:
+      label: Teacher Username (Optional)
+      description: If you know the teacher username who will supervise this activity
+      placeholder: e.g., "mrodriguez"
+
+  - type: textarea
+    id: additional_requirements
+    attributes:
+      label: Additional Requirements or Context
+      description: Any special requirements, materials needed, or additional context
+      placeholder: e.g., "Requires access to art supplies", "Need projector for presentations"
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Acceptance Criteria
+        
+        When this issue is completed, the following should be implemented:
+        
+        - [ ] New activity added to the database with all specified details
+        - [ ] Activity appears in the activities list on the website
+        - [ ] Students can view activity details including schedule and description
+        - [ ] Teachers can register students for this activity (if teacher auth is enabled)
+        - [ ] Activity respects the maximum participant limit
+        
+        ## Implementation Hints
+        
+        - Add the new activity to the `initial_activities` dictionary in `src/backend/database.py`
+        - Use the provided schedule information to create proper `schedule_details` with days, start_time, and end_time
+        - Ensure the activity name is unique and doesn't conflict with existing activities
+        - Test that the activity appears correctly in the frontend
+        
+        ## Technical Context
+        
+        - Activities are stored in MongoDB with structure: name, description, schedule, schedule_details, max_participants, participants
+        - Frontend automatically categorizes activities based on name/description keywords
+        - Time format should be HH:MM in 24-hour format for schedule_details
+        - Activity type affects the icon and styling displayed on the frontend
