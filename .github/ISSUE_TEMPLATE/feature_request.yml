@@ -1,0 +1,192 @@
+name: ✨ Feature Request
+description: Request a new feature or functionality for the activities system
+title: "[Feature Request]: "
+labels: ["enhancement", "feature-request"]
+assignees: 
+  - Copilot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Feature Request
+        
+        Use this template to request new functionality for the Mergington High School activities system.
+        
+        **Important**: Please provide clear details about what you want and why it's needed to help the coding agent implement your request effectively.
+
+  - type: dropdown
+    id: feature_category
+    attributes:
+      label: Feature Category
+      description: What type of feature are you requesting?
+      options:
+        - Search and Filtering (find activities by criteria)
+        - Student Management (registration, tracking, notifications)
+        - Teacher Tools (reporting, management, communication)
+        - Data Export/Import (spreadsheets, reports, data management)
+        - Calendar Integration (scheduling, reminders)
+        - Communication Features (messaging, announcements)
+        - Analytics and Reporting (participation stats, trends)
+        - User Account Management (profiles, preferences)
+        - API Enhancements (new endpoints, data access)
+        - Other (specify below)
+    validations:
+      required: true
+
+  - type: input
+    id: custom_feature_category
+    attributes:
+      label: Custom Feature Category
+      description: If you selected "Other" above, please specify the category
+      placeholder: e.g., "Attendance tracking"
+
+  - type: input
+    id: feature_title
+    attributes:
+      label: Feature Title
+      description: Give your feature a clear, descriptive name
+      placeholder: e.g., "Advanced Activity Search", "Email Notifications for Registration"
+    validations:
+      required: true
+
+  - type: textarea
+    id: feature_description
+    attributes:
+      label: Detailed Description
+      description: Describe exactly what this feature should do
+      placeholder: e.g., "Allow students to search activities by time of day, day of week, activity type, and availability. Show filtered results in real-time as they adjust search criteria."
+    validations:
+      required: true
+
+  - type: textarea
+    id: user_story
+    attributes:
+      label: User Story
+      description: Describe this feature from a user's perspective
+      placeholder: e.g., "As a student, I want to filter activities by Tuesday afternoons, so I can find activities that fit my schedule after my part-time job."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: target_users
+    attributes:
+      label: Primary Users
+      description: Who will primarily use this feature?
+      options:
+        - Students browsing activities
+        - Teachers managing activities
+        - School administrators
+        - All users
+        - System administrators
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority_justification
+    attributes:
+      label: Priority Level
+      description: How important is this feature?
+      options:
+        - Critical - Essential for basic system operation
+        - High - Significantly improves user experience
+        - Medium - Useful enhancement that adds value
+        - Low - Nice to have feature
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_workaround
+    attributes:
+      label: Current Workaround
+      description: How do users currently accomplish this task, if at all?
+      placeholder: e.g., "Students currently have to scroll through all activities manually", "Teachers use external spreadsheets to track this information"
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior
+      description: Step-by-step description of how the feature should work
+      placeholder: |
+        1. User clicks on "Advanced Search" button
+        2. Filter options appear (day, time, type, availability)
+        3. User selects criteria
+        4. Results update automatically
+        5. User can clear filters or save search preferences
+
+  - type: textarea
+    id: acceptance_criteria_custom
+    attributes:
+      label: Specific Acceptance Criteria
+      description: List specific requirements that must be met for this feature to be considered complete
+      placeholder: |
+        - Search filters work independently and in combination
+        - Results update within 500ms of filter changes
+        - Works on both desktop and mobile
+        - Filters remember user's last selection during session
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: technical_requirements
+    attributes:
+      label: Technical Considerations
+      description: Check any that apply to your feature request
+      options:
+        - label: Requires database schema changes
+        - label: Needs new API endpoints
+        - label: Requires frontend interface changes
+        - label: May need external service integration
+        - label: Should work offline/cached
+        - label: Needs real-time updates
+        - label: Requires user authentication
+        - label: Needs data validation
+
+  - type: textarea
+    id: integration_notes
+    attributes:
+      label: Integration with Existing Features
+      description: How should this feature work with current functionality?
+      placeholder: e.g., "Should integrate with existing activity cards", "Must respect teacher authentication requirements"
+
+  - type: input
+    id: similar_examples
+    attributes:
+      label: Similar Examples (Optional)
+      description: Any websites or apps that have similar features?
+      placeholder: e.g., "Like the filtering on Eventbrite", "Similar to course search on university websites"
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Implementation Guidance
+        
+        When implementing this feature, consider the following:
+        
+        ### Technical Architecture
+        - **Backend**: May require new endpoints in `src/backend/routers/`
+        - **Frontend**: Updates to `src/static/` files (HTML, CSS, JS)
+        - **Database**: Consider if schema changes are needed in `src/backend/database.py`
+        
+        ### Code Standards
+        - Follow existing patterns in the codebase
+        - Maintain consistency with current UI/UX design
+        - Ensure responsive design for mobile compatibility
+        - Add appropriate error handling and validation
+        
+        ### Testing Considerations
+        - Test with existing sample data
+        - Verify backward compatibility
+        - Test across different browsers and devices
+        - Consider edge cases and error scenarios
+        
+        ### Documentation
+        - Update API documentation if new endpoints are added
+        - Consider updating the README if user-facing changes are significant
+        
+        ### Limitations and Context
+        
+        - Consider impact on existing users and backward compatibility
+        - Ensure feature works within current system architecture constraints
+        - Be mindful of performance implications, especially for large datasets
+        - Follow existing security patterns, particularly for teacher authentication
+        - Consider scalability if feature will be used by many users simultaneously

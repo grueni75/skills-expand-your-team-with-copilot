@@ -1,0 +1,132 @@
+name: 💼 Teacher Support Request
+description: Get help with general teacher tasks or questions about the system
+title: "[Teacher Support]: "
+labels: ["teacher-support", "question"]
+assignees: 
+  - Copilot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Teacher Support Request
+        
+        Use this template if you need help with general tasks or have questions that don't fit the other specific templates.
+        
+        **Note**: For specific requests like adding activities or reporting bugs, please use the dedicated templates instead.
+
+  - type: dropdown
+    id: support_type
+    attributes:
+      label: Type of Support Needed
+      description: What kind of help do you need?
+      options:
+        - General usage questions
+        - Help with student management
+        - Assistance with teacher login/authentication
+        - Understanding system features
+        - Training or tutorial request
+        - Data export/reporting help
+        - Account setup or permissions
+        - System configuration questions
+        - Other (specify below)
+    validations:
+      required: true
+
+  - type: input
+    id: custom_support_type
+    attributes:
+      label: Custom Support Type
+      description: If you selected "Other" above, please specify
+      placeholder: e.g., "Bulk student operations"
+
+  - type: textarea
+    id: question_description
+    attributes:
+      label: Detailed Question/Request
+      description: Describe what you need help with or what you're trying to accomplish
+      placeholder: e.g., "I need to register 20 students for Math Olympiad at once instead of one by one"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_situation
+    attributes:
+      label: Current Situation
+      description: Describe what you've tried or what's happening now
+      placeholder: e.g., "I'm currently adding students one by one but it's very time-consuming"
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: How urgent is this?
+      description: When do you need this resolved?
+      options:
+        - Urgent - Need help today
+        - Soon - Need help this week
+        - Normal - Need help when convenient
+        - Future - Planning ahead
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: attempted_solutions
+    attributes:
+      label: What have you already tried?
+      description: Check all that apply
+      options:
+        - label: Read the documentation/help materials
+        - label: Searched for similar questions
+        - label: Asked colleagues for help
+        - label: Tried different approaches
+        - label: This is my first attempt
+
+  - type: textarea
+    id: expected_outcome
+    attributes:
+      label: Ideal Outcome
+      description: What would be the perfect solution for you?
+      placeholder: e.g., "A way to upload a CSV file with student emails to register them all at once"
+
+  - type: input
+    id: teacher_context
+    attributes:
+      label: Your Context
+      description: What activities or areas are you responsible for? (Optional)
+      placeholder: e.g., "Art Club supervisor", "Math department", "New teacher"
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Response Guidelines
+        
+        When responding to this teacher support request:
+        
+        ### Acceptance Criteria for Response
+        
+        A complete response should include:
+        - [ ] Clear, step-by-step instructions for the teacher's specific situation
+        - [ ] Explanation of why the suggested approach works
+        - [ ] Alternative options if applicable
+        - [ ] Links to relevant documentation or resources
+        - [ ] Follow-up suggestions for related tasks
+        
+        ### Provide Clear Solutions
+        - Give step-by-step instructions when possible
+        - Include screenshots or examples if helpful
+        - Explain both how to do something and why it works that way
+        
+        ### Consider Teacher Workflow
+        - Think about efficiency for teachers managing multiple students
+        - Consider common classroom scenarios and needs
+        - Suggest best practices for ongoing use
+        
+        ### Implementation Options
+        If this requires code changes to improve teacher experience:
+        - Assess if this is a common need that warrants a feature
+        - Consider creating a follow-up feature request issue
+        - Provide both immediate workarounds and long-term solutions
+        
+        ### Documentation Updates
+        - Consider if this question indicates missing documentation
+        - Suggest updates to help materials if needed
+        - Think about creating tutorials for common teacher tasks
