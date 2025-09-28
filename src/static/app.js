@@ -25,6 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeLoginModal = document.querySelector(".close-login-modal");
   const loginMessage = document.getElementById("login-message");
 
+  // Theme toggle element
+  const themeToggle = document.getElementById("theme-toggle");
+
   // Activity categories with corresponding colors
   const activityTypes = {
     sports: { label: "Sports", color: "#e8f5e9", textColor: "#2e7d32" },
@@ -855,6 +858,35 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Error signing up:", error);
     }
   });
+
+  // Theme functions
+  function getStoredTheme() {
+    return localStorage.getItem("theme") || "light";
+  }
+
+  function setStoredTheme(theme) {
+    localStorage.setItem("theme", theme);
+  }
+
+  function setTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+    themeToggle.title = theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
+    setStoredTheme(theme);
+  }
+
+  function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+  }
+
+  // Initialize theme from localStorage
+  const storedTheme = getStoredTheme();
+  setTheme(storedTheme);
+
+  // Add event listener for theme toggle
+  themeToggle.addEventListener("click", toggleTheme);
 
   // Expose filter functions to window for future UI control
   window.activityFilters = {
